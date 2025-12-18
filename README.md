@@ -1,5 +1,7 @@
 # Latent Gloves
 
+[Learn more about the project here!](https://sites.google.com/view/latent-gloves)
+
 **Requirements**
 * Max 8 or later
 * Arduino IDE
