@@ -6,6 +6,7 @@
 ## Build your own glove
 
 [Read the building guide](how_to_build_your_own_glove.md)
+
 <img src="images/cabled_version.jpg" alt="Cabled version" width="400">
 
 ## Software Requirements
