@@ -3,6 +3,7 @@
 ## Required materials
 - One glove (Suggested: lightweight material such as cotton, to not produce too much heat). [e.g. Migliore Wear Cotton Gloves for Eczema - 2 pairs £8.99](https://www.amazon.co.uk/Migliore-Wear-Touchscreen-Moisturising-Sleeping/dp/B0BKSBNF5M?th=1) 
 - 4 flex sensors. [e.g. 5 pack £24.56](https://www.amazon.co.uk/MQODLFP-Manipulator-Electronic-Accessories-Flex2-2Inch)
+- 1 MPU 6050 Accelerometer/Gyroscope module. [e.g. 4 pack £10.99](https://www.amazon.co.uk/JZK-MPU-6050-gyroscope-accelerometer-Raspberry/dp/B07Y9KL5Q1/ref=sr_1_7)
 - Arduino Nano ESP32 board. [Board without headers - £14.96](https://www.amazon.co.uk/Arduino-ESP32-Without-Header-ABX00092/dp/B0C947C9QS/ref=sr_1_3_sspa)  _The controller can be built with another ESP32 board, but the code and schematic will probably need some adjustments_
 - 4 10kΩ resistors
 - Either:
