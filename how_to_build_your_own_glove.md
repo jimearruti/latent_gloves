@@ -6,8 +6,9 @@
 - Arduino Nano ESP32 board. [Board without headers - £14.96](https://www.amazon.co.uk/Arduino-ESP32-Without-Header-ABX00092/dp/B0C947C9QS/ref=sr_1_3_sspa)  _The controller can be built with another ESP32 board, but the code and schematic will probably need some adjustments_
 - 4 10kΩ resistors
 - Either:
-  - Conductive thread (Madeira high-conductive HC 12 recommended, it must be solderable), several pieces of fabric and fabric scissors
-  - Multicore cable of different colours and wire stripper
+  - Multicore cable of different colours **(tested)**
+  - Conductive thread (Madeira high-conductive HC 12 recommended, it must be solderable), several pieces of fabric and fabric scissors **(not functional yet)**
+- Wire stripper
 - Stripboards
 - Soldering iron
 - Fabric glue
@@ -19,13 +20,15 @@
 ## Building guide 
 
 Schematic including all connections:
-![\[Schematic\]](images/schematic.png)
+
+<img src="images/schematic.png" alt="Schematic" width="400">
 
 
 ### Cabled version (working prototype)
 
 You can build this version of the controller: 
-![Cabled version](images/cabled_version.jpg)
+
+<img src="images/cabled_version.jpg" alt="Cabled version" width="400">
 
 _Note: checking connections with the multimeter is suggested at each stage_
 
@@ -80,7 +83,8 @@ _Note: checking connections with the multimeter is suggested at each stage_
 
 It should look like this:
 
-![vcc_example](images/conductive_thread_vcc.jpg)
+<img src="images/conductive_thread_vcc.jpg" alt="vcc example" width="400">
+
 
 - Test connections with the multimeter before continuing!
 - If everything is OK, solder a red cable to the stripboard, connected to the previously soldered threads. It should be long enough to reach the Arduino on the wrist.
@@ -97,12 +101,13 @@ It should look like this:
 
 The connections should look like this, though different stripboards might be displayed differently:
 
-![gnd_example](images/conductive_thread_gnd_crop.jpg)
+<img src="images/conductive_thread_gnd_crop.jpg" alt="gnd example" width="200">
+
 
 - Test with multimeter
 - If everything is OK, solder a black cable to the stripboard in the common potential. It should be long enough to reach the Arduino
 
-4- Last, the **sensor layer**.
+4. Last, the **sensor layer**.
     - Place a cloth panel between the previous layer and this one to prevent short circuits
     - Sew 4 vertical lines of conductive thread, they will connect each sensor to an Arduino input
     - The top end should be soldered to the same terminal of the sensor that was connected to the pull-down resistor (remember the heatsink!)
@@ -110,18 +115,19 @@ The connections should look like this, though different stripboards might be dis
 
 It should look like this:
 
-![sensor_example](images/conductive_thread_sensors_connection.jpg)
+<img src="images//conductive_thread_sensors_connection.jpg" alt="sensor example" width="400">
 
 _Note that the material separating the layers in the photo (velostat) is not appropriate, it should be cloth or other non-conductive material._
 
-5- Before soldering the sensors to the Arduino, run individual tests for each sensor using Crocodile clips. This will help you find possible bugs before everything is set in place.
+5. Before soldering the sensors to the Arduino, run individual tests for each sensor using Crocodile clips. This will help you find possible bugs before everything is set in place.
 
-6- Sew the Arduino into a piece of cloth, you will later fix this cloth to the glove (sewing or using fabric glue).
+6. Sew the Arduino into a piece of cloth, you will later fix this cloth to the glove (sewing or using fabric glue).
 
-7- Solder the VCC and GND cables to the board.
+7. Solder the VCC and GND cables to the board.
 
-8- Knot and solder each thread to its corresponding input, following the schematic (pins A7, A6, A1 and A0 are to be used)
+8. Knot and solder each thread to its corresponding input, following the schematic (pins A7, A6, A1 and A0 are to be used)
 
-_To Do: 
-9- Sew the MPU6050 module into a piece of cloth (this will be the top layer)._
+_To Do:_ 
+
+_9. Sew the MPU6050 module into a piece of cloth (this will be the top layer)._
 
