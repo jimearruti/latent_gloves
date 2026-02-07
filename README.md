@@ -1,6 +1,7 @@
 # Latent Gloves
 
 ## Introduction
+Latent Gloves is a wearable Digital Musical Instrument (DMI) designed for the embodied exploration of neural audio latent spaces through hand gestures. The instrument combines a DIY glove-based controller, embedded sensor processing, and a neural audio synthesis engine based on the nn~ Max package to transform a vocal audio recording using a RAVE timbre transfer model.
 
 
 ## Build your own glove
