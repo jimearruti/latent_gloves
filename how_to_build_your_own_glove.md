@@ -43,24 +43,29 @@ _Note: checking connections with the multimeter is suggested at each stage_
   - You'll need to solder 5 cables as outputs from this row: four will go to each one of the flex sensors, and one will go to the MPU6050 module.
   - You'll need to solder 1 cable that will be an input in this row (powered by the Arduino VCC pin).
  
-[IMAGE]
+<img src="images/schematic_flex_readings.png" alt="Flex sensors VCC connection" width="400">
+
 
 #### Flex Sensor reading (gray cables):
   - For each flex sensor, solder a gray cable to the stripboard to the free terminal. Note that different sensors should not be interconnected.
   - Each one of the gray cables will be later connected to the Arduino at the appropriate pin.
 
-[IMAGE]
+<img src="images/schematic_flex_readings.png" alt="flex sensors data connection" width="400">
+
 
 #### Pull-down resistors (gray cables)**
   - For each flex sensor, solder a new gray cable to the strip board **at the same potential** as before.
   - Solder the gray cable to a 10kΩ resistor
   - The other terminal of the resistor is common to all resistors and will be later connected to GND, so solder them to be connected by the stripboard.
  
-[IMAGE]
+<img src="images/schematic_pull_down.png" alt="Pull-down resistors" width="400">
 
 #### **GND (black cables)**:
   - To the common potential point for the resistors above, solder one black cable that will later go to the Arduino GND pin.
   - Solder a second cable to this point, that will later go to the MPU6050 module.
+
+<img src="images/schematic_gnd.png" alt="Ground connections" width="400">
+
  
 #### Individual flex sensor test
 Check the connections are OK using the multimeter (continuity and not short circuits!).
