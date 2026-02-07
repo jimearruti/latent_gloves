@@ -43,14 +43,14 @@ _Note: checking connections with the multimeter is suggested at each stage_
   - You'll need to solder 5 cables as outputs from this row: four will go to each one of the flex sensors, and one will go to the MPU6050 module.
   - You'll need to solder 1 cable that will be an input in this row (powered by the Arduino VCC pin).
  
-<img src="images/schematic_flex_readings.png" alt="Flex sensors VCC connection" width="400">
+<img src="images/schematic_flex_vcc.png" alt="Flex sensors VCC connection" width="200">
 
 
 #### Flex Sensor reading (gray cables):
   - For each flex sensor, solder a gray cable to the stripboard to the free terminal. Note that different sensors should not be interconnected.
   - Each one of the gray cables will be later connected to the Arduino at the appropriate pin.
 
-<img src="images/schematic_flex_readings.png" alt="flex sensors data connection" width="400">
+<img src="images/schematic_flex_readings.png" alt="flex sensors data connection" width="200">
 
 
 #### Pull-down resistors (gray cables)**
@@ -58,13 +58,12 @@ _Note: checking connections with the multimeter is suggested at each stage_
   - Solder the gray cable to a 10kΩ resistor
   - The other terminal of the resistor is common to all resistors and will be later connected to GND, so solder them to be connected by the stripboard.
  
-<img src="images/schematic_pull_down.png" alt="Pull-down resistors" width="400">
 
 #### **GND (black cables)**:
   - To the common potential point for the resistors above, solder one black cable that will later go to the Arduino GND pin.
   - Solder a second cable to this point, that will later go to the MPU6050 module.
 
-<img src="images/schematic_gnd.png" alt="Ground connections" width="400">
+<img src="images/schematic_gnd.png" alt="Ground connections" width="200">
 
  
 #### Individual flex sensor test
@@ -115,7 +114,7 @@ Connect the Arduino to the PC, run the code and check everything is working. If 
 
 It should look like this:
 
-<img src="images/conductive_thread_vcc.jpg" alt="vcc example" width="400">
+<img src="images/conductive_thread_vcc.jpg" alt="vcc example" width="300">
 
 - Test connections with the multimeter before continuing!
 - If everything is OK, solder a red cable to the stripboard, connected to the previously soldered threads. It should be long enough to reach the Arduino on the wrist.
@@ -144,7 +143,7 @@ The connections should look like this, though different stripboards might be dis
 
 It should look like this:
 
-<img src="images//conductive_thread_sensors_connection.jpg" alt="sensor example" width="400">
+<img src="images//conductive_thread_sensors_connection.jpg" alt="sensor example" width="300">
 
 _Note that the material separating the layers in the photo (velostat) is not appropriate, it should be cloth or other non-conductive material._
 
