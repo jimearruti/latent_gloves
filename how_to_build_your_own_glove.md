@@ -86,6 +86,8 @@ Connect the Arduino to the PC, run the code and check everything is working. If 
 - Solder one black cable to the GND pin of the MPU6050 module.
 - Solder two new cables (of a different colour) to the SCL and SDA pins of the MPU6050 module, keeping in mind that they should be long enough to reach pins A5 and A4 of the Arduino.
 
+<img src="images/schematic_flex_vcc.png" alt="MPU6050 connections" width="200">
+
 #### MPU6050 test
 Connect the one red and one black cable to the VCC and GND pins of the Arduino, respectively, using crocodile cables.
 Connect the Arduino to the PC, run the code and check everything is working. If it's not, check the connections!
