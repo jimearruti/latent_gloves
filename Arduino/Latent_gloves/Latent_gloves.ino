@@ -157,6 +157,8 @@ Orientation readMPU() {
 }
 
 float kalmanFilter(float &angle, float &bias, float gyro_rate, float accel_angle, float dt, float P_matrix[2][2]) {
+  // Based on https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp
+
   // Step 1: Predict
   float rate = gyro_rate - bias;
   angle += dt * rate;
