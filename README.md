@@ -16,21 +16,20 @@ Latent Gloves is a wearable Digital Musical Instrument (DMI) designed for the em
 
 * Max 8 or later
 * Arduino IDE
-* Install [nn~ Max Package](https://forum.ircam.fr/projects/detail/nn/)
+* [nn~ Max Package](https://forum.ircam.fr/projects/detail/nn/)
 * Download pretrained RAVE model [models by Shuoyang Zheng](https://huggingface.co/shuoyang-zheng/jaspers-rave-models/blob/main/gtsinger_b2048_r44100_z16_noncausal.ts)
 * Place downloaded model in nn~ models folder
 
 
-
 ## Instructions for playing the instrument
 
-1. Put the glove on and connect via USB to PC
+1. Put the glove on and connect it via to the PC via USB
 
-2. Connect MIDI Interface to PC (if additional control is wanted)
+_2. Connect MIDI Interface to PC (if additional control is wanted)_
 
 3. Open code on Arduino IDE
 
-4. Run code while the hand is in a neutral position
+4. Run code with the hand in a neutral position
 
 5. Open the Serial Monitor to check if the calibration was done correctly
 
