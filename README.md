@@ -41,7 +41,7 @@ Steps 3-6 can be bypassed once the code is already stored in the Arduino.
 In that case, pressing the reset button on the board while holding the hand in a neutral position is advised.
 
 ## Acknowledgments
-* Max Package based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
+* Max Patch based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
 * Pre-trained RAVE model downloaded from [Shuoyang Zheng's pre-trained RAVE models](https://huggingface.co/shuoyang-zheng/jaspers-rave-models)
 * Arduino MPU6050 code based on examples of [Adafruit's MPU6050 library](https://docs.arduino.cc/libraries/adafruit-mpu6050/)
 * Arduino Kalman filter code based on [Kristian Lauszus (TKJ Electronics) implementation](https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp)
