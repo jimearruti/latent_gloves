@@ -27,7 +27,7 @@ Latent Gloves is a wearable Digital Musical Instrument (DMI) designed for the em
 
 _2. Connect MIDI Interface to PC (if additional control is wanted)_
 
-3. Open code on Arduino IDE
+3. Open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE
 
 4. Run code with the hand in a neutral position
 
@@ -35,13 +35,14 @@ _2. Connect MIDI Interface to PC (if additional control is wanted)_
 
 6. Close Serial Monitor
 
-7. Open Max Patch and follow instructions
+7. Open `Max/Latent Gloves.maxpat` Max Patch in Max and follow instructions on screen
 
 Steps 3-6 can be bypassed once the code is already stored in the Arduino. 
 In that case, pressing the reset button on the board while holding the hand in a neutral position is advised.
 
 ## Acknowledgments
-* Max Patch based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
+* Max Patch is `Max/Latent Gloves.maxpat` based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
 * Pre-trained RAVE model downloaded from [Shuoyang Zheng's pre-trained RAVE models](https://huggingface.co/shuoyang-zheng/jaspers-rave-models)
-* Arduino MPU6050 code based on examples of [Adafruit's MPU6050 library](https://docs.arduino.cc/libraries/adafruit-mpu6050/)
-* Arduino Kalman filter code based on [Kristian Lauszus (TKJ Electronics) implementation](https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp)
+* Max Patch test `Max/Tests/Latent Gloves - regression test.maxpat` is based on [FluCoMa's tutorial, Controlling a Synth using a Neural Network](https://learn.flucoma.org/learn/regression-neural-network/)
+* Arduino MPU6050 code in `Arduino/Latent_gloves/Latent_gloves.ino` based on examples of [Adafruit's MPU6050 library](https://docs.arduino.cc/libraries/adafruit-mpu6050/)
+* Arduino Kalman filter code in `Arduino/Latent_gloves/Latent_gloves.ino` based on [Kristian Lauszus (TKJ Electronics) implementation](https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp)
