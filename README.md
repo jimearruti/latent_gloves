@@ -44,4 +44,4 @@ In that case, pressing the reset button on the board while holding the hand in a
 * Max Package based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
 * Pre-trained RAVE model downloaded from [Shuoyang Zheng's pre-trained RAVE models](https://huggingface.co/shuoyang-zheng/jaspers-rave-models)
 * Arduino MPU6050 code based on examples of [Adafruit's MPU6050 library](https://docs.arduino.cc/libraries/adafruit-mpu6050/)
-* Kalman filter code based on [Kristian Lauszus (TKJ Electronics) implementation](https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp)
+* Arduino Kalman filter code based on [Kristian Lauszus (TKJ Electronics) implementation](https://github.com/TKJElectronics/KalmanFilter/blob/master/Kalman.cpp)
