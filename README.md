@@ -29,9 +29,9 @@ _2. Connect MIDI Interface to PC (if additional control is wanted)_
 
 3. Open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE
 
-4. Run code with the hand in a neutral position
+4. (Calibration) While holding the hand in a neutral, horizontal position with fingers extended and the palm facing the floor, run the code.
 
-5. Open the Serial Monitor to check if the calibration was done correctly
+5. Open the Serial Monitor to check if the calibration ran without errors
 
 6. Close Serial Monitor
 
