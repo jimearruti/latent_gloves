@@ -1,8 +1,21 @@
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
+#include <OSCMessage.h>   // CNMAT OSC library
+#include <WiFi.h>
+#include <WiFiUdp.h>
 
-int FSR[] = {A7, A6, A1};
+bool send_osc = false;
+WiFiUDP udp;
+
+// ── WiFi / OSC config ──────────────────────────────────────────────
+const char* WIFI_SSID     = "WIFI NAME";
+const char* WIFI_PASSWORD = "WIFI PASS";
+const char* OSC_HOST      = "HOST IP"; // IP of your Max/MSP machine
+const int   OSC_PORT      = 9000;            // udpreceive port in Max
+// ───────────────────────────────────────────────────────────────────
+
+int FSR[] = {A7, A6, A1, A0};
 bool debug = true;
 const int listSize = sizeof(FSR) / sizeof(FSR[0]);
 
@@ -25,7 +38,7 @@ float gyro_filtered[3];
 
 // Calibration offsets
 float gyro_offset[3] = {0, 0, 0};
-int fsr_baseline[3] = {0, 0, 0};
+int fsr_baseline[listSize] = {};
 float pitch_zero = 0, roll_zero = 0;  // Calibrated zero position
 
 // Kalman filter variables for pitch and roll
@@ -69,8 +82,13 @@ void setup() {
 
   // Initialize accelerometer+gyroscope
   initMPU6050();
+
+  if (send_osc){ 
+    initWiFi(); 
+  }
   
   // Calibrate the sensors
+  pinMode(LED_BUILTIN, OUTPUT);
   calibrateSensors();
   
   lastTime = millis();
@@ -81,8 +99,13 @@ void setup() {
 void loop(){
   readFSR();
   Orientation orientation = readMPU();
-  String output = String((int)round(forceAvg))+"_"+String((int)round(force[0]))+"_"+String((int)round(force[1]))+"_"+String((int)round(force[2]))+"_"+String((int)round(orientation.pitch))+"_"+String((int)round(orientation.roll));
-  Serial.println(output);
+  if (send_osc){
+    sendOSC(force[0], force[1], force[2], force[3], orientation.pitch, orientation.roll);
+  }
+  else{
+    String output = String((int)round(force[0]))+"_"+String((int)round(force[1]))+"_"+String((int)round(force[2]))+"_"+String((int)round(force[3]))+"_"+String((int)round(orientation.pitch))+"_"+String((int)round(orientation.roll));
+    Serial.println(output);
+  }
 }
 
 void readFSR() {
@@ -191,6 +214,42 @@ float kalmanFilter(float &angle, float &bias, float gyro_rate, float accel_angle
   return angle;
 }
 
+// ── OSC send ───────────────────────────────────────────────────────
+void sendOSC(float f0, float f1, float f2, float f3, float p, float r) {
+  if (WiFi.status() != WL_CONNECTED) return;
+
+  OSCMessage msg("/glove");
+  msg.add(f0);
+  msg.add(f1);
+  msg.add(f2);  
+  msg.add(f3);
+  msg.add(p);
+  msg.add(r);
+
+  udp.beginPacket(OSC_HOST, OSC_PORT);
+  msg.send(udp);
+  udp.endPacket();
+  msg.empty();
+}
+
+// ── WiFi init ──────────────────────────────────────────────────────
+void initWiFi() {
+  Serial.print("Connecting to WiFi");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  int attempts = 0;
+  while (WiFi.status() != WL_CONNECTED && attempts < 40) {
+    delay(500);
+    Serial.print(".");
+    attempts++;
+  }
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("\nWiFi connected! IP: " + WiFi.localIP().toString());
+  } else {
+    Serial.println("\nWiFi FAILED — OSC disabled, Serial only.");
+  }
+  udp.begin(OSC_PORT); // also listen on that port (harmless, required by some UDP stacks)
+}
+
 void initMPU6050(){
    Serial.println("Adafruit MPU6050 test!");
 
@@ -268,7 +327,13 @@ void initMPU6050(){
 void calibrateSensors() {
   Serial.println("\n=== CALIBRATION START ===");
   Serial.println("Mantain hand in calibration position...");
-  delay(2000);
+  
+  for (int i = 0; i < 10; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(100);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
+  }
   
   // Calibrate gyroscope
   Serial.println("Calibrating gyroscope...");
@@ -281,9 +346,11 @@ void calibrateSensors() {
     gyro_sum[0] += g.gyro.x;
     gyro_sum[1] += g.gyro.y;
     gyro_sum[2] += g.gyro.z;
+    if (i % 5 == 0) digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN)); // toggle every 5 samples
     delay(10);
   }
-  
+  digitalWrite(LED_BUILTIN, LOW);
+
   gyro_offset[0] = gyro_sum[0] / calibration_samples;
   gyro_offset[1] = gyro_sum[1] / calibration_samples;
   gyro_offset[2] = gyro_sum[2] / calibration_samples;
@@ -305,9 +372,11 @@ void calibrateSensors() {
     accel_sum[0] += a.acceleration.x;
     accel_sum[1] += a.acceleration.y;
     accel_sum[2] += a.acceleration.z;
+    if (i % 5 == 0) digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
     delay(10);
   }
-  
+  digitalWrite(LED_BUILTIN, LOW);
+
   float accel_x_avg = accel_sum[0] / calibration_samples;
   float accel_y_avg = accel_sum[1] / calibration_samples;
   float accel_z_avg = accel_sum[2] / calibration_samples;
@@ -334,14 +403,22 @@ void calibrateSensors() {
     int fsr_sum = 0;
     for (int i = 0; i < 50; i++) {
       fsr_sum += analogRead(FSR[j]);
+      if (i % 5 == 0) digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
       delay(10);
     }
+    digitalWrite(LED_BUILTIN, LOW);
+
     fsr_baseline[j] = fsr_sum / 50;
     Serial.print("FSR A");
     Serial.print(FSR[j] - A0);
     Serial.print(" baseline: ");
     Serial.println(fsr_baseline[j]);
   }
+
+  // Solid LED briefly to signal calibration done, then off
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
   
   Serial.println("\n=== CALIBRATION COMPLETE ===");
   Serial.println("Starting measurements...\n");
