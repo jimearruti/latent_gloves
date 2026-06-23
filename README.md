@@ -4,10 +4,17 @@
 
 Latent Gloves is a wearable Digital Musical Instrument (DMI) designed for the embodied exploration of neural audio latent spaces through hand gestures. The instrument combines a DIY glove-based controller, embedded sensor processing, and a neural audio synthesis engine based on the nn~ Max package to transform a vocal audio recording using a RAVE timbre transfer model.
 
+This instrument was used in performances at:
+* Interactive Digital Multimedia Techniques (IDMT) module concert from the Sound and Music Computing MSc at Queen Mary University of London, Dec 2025.
+* AI Playground at Sónar+D, Barcelona, Jun 2026.
+* NIME LATAM Gathering, at NIME 2026, London, Jun 2026.
+
 
 ## Build your own glove
 
 [Read the building guide](how_to_build_your_own_glove.md)
+
+TODO: Update with new prototype and lessons learned.
 
 
 ## Software Requirements
