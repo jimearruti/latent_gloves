@@ -30,22 +30,29 @@ TODO: Update with new prototype and lessons learned.
 
 ## Instructions for playing the instrument
 
+### Setup
 1. Put the glove on and connect it via to the PC via USB
 
 _2. Connect MIDI Interface to PC (if additional control is wanted)_
 
-3. Open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE
+3. Open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE, select the Ardino Nano ESP32 board and click Upload. 
 
-4. (Calibration) While holding the hand in a neutral, horizontal position with fingers extended and the palm facing the floor, run the code.
+4. (Calibration) While holding the hand in a neutral, horizontal position with fingers extended and the palm facing the floor, run the code. The LED will start bliking. Wait until the blinking stops.
 
-5. Open the Serial Monitor to check if the calibration ran without errors
+5. Open the Serial Monitor to check if the calibration ran without errors, you should be seeing the values of flexion in each finger and the pitch and roll angles updating.
 
-6. Close Serial Monitor
+6. Close Serial Monitor.
 
-7. Open `Max/Latent Gloves.maxpat` Max Patch in Max and follow instructions on screen
+### Play
 
-Steps 3-6 can be bypassed once the code is already stored in the Arduino. 
-In that case, pressing the reset button on the board while holding the hand in a neutral position is advised.
+For playing, assuming everything is working correctly, you will only need to plug the glove, as the program is already saved in the board. Remember that everytime the board is turned on the calibration is triggered, so act accordingly, or manually trigger the calibration by pressing the reset button on the board.
+
+1. Connect Glove to PC
+
+2. Wait for Calibration to finish (wait until the blinking stops)
+
+3. Ensuring the Serial Port is closed, open `Max/Latent Gloves.maxpat` Max Patch in Max and follow instructions on screen.
+
 
 ## Acknowledgments
 * Max Patch is `Max/Latent Gloves.maxpat` based on examples of acid-ircam's [nn~ Max Package](https://github.com/acids-ircam/nn_tilde)
