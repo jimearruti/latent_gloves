@@ -4,9 +4,9 @@ We present instructions for building the prototype of Latent Glove in its two ve
 ## Required materials
 - One glove (Suggested: lightweight material that doesn't produce too much heat, such as cotton). [e.g. Migliore Wear Cotton Gloves for Eczema - 2 pairs £8.99](https://www.amazon.co.uk/Migliore-Wear-Touchscreen-Moisturising-Sleeping/dp/B0BKSBNF5M?th=1)
 - Arduino Nano ESP32 board. [Board without headers - £14.96](https://www.amazon.co.uk/Arduino-ESP32-Without-Header-ABX00092/dp/B0C947C9QS/ref=sr_1_3_sspa)  _The controller can be built with another ESP32 board, but the code and schematic will probably need some adjustments_ 
-- 4 flex sensors. [e.g. 5 pack £24.56](https://www.amazon.co.uk/MQODLFP-Manipulator-Electronic-Accessories-Flex2-2Inch)
+- 4 flex sensors. [e.g. 5 pack £24.56](https://www.amazon.co.uk/MQODLFP-Manipulator-Electronic-Accessories-Flex2-2Inch) (For best results, get a flex sensor with a wide variation in resistance).
 - 1 MPU 6050 Accelerometer/Gyroscope module. [e.g. 4 pack £10.99](https://www.amazon.co.uk/JZK-MPU-6050-gyroscope-accelerometer-Raspberry/dp/B07Y9KL5Q1/ref=sr_1_7)
-- 4 10kΩ resistors
+- 4 10kΩ resistors (For better results measure the flex sensors to get the values of resistance at the extremes. The optimal resistor value for the voltage divider to maximise range is the geometric mean of these values).
 - Crocodile cables
 - Multicore cable of different colours (e.g.: black, red, grey)
 - Heatsink
