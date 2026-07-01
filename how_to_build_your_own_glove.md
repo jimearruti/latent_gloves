@@ -6,7 +6,7 @@ We present instructions for building the prototype of Latent Glove in its two ve
 - Arduino Nano ESP32 board. [Board without headers - £14.96](https://www.amazon.co.uk/Arduino-ESP32-Without-Header-ABX00092/dp/B0C947C9QS/ref=sr_1_3_sspa)  _The controller can be built with another ESP32 board, but the code and schematic will probably need some adjustments_ 
 - 4 flex sensors. [e.g. this at Adafruit](https://www.adafruit.com/product/1070) (For best results, get a flex sensor with a wide variation in resistance!).
 - 1 MPU 6050 Accelerometer/Gyroscope module. [e.g. 4 pack £10.99](https://www.amazon.co.uk/JZK-MPU-6050-gyroscope-accelerometer-Raspberry/dp/B07Y9KL5Q1/ref=sr_1_7)
-- 4 10kΩ resistors (For better results measure the flex sensors to get the values of resistance at the extremes. The optimal resistor value for the voltage divider to maximise range is the geometric mean of these values).
+- 4 22kΩ resistors (For better results measure the flex sensors to get the values of resistance at the extremes. The optimal resistor value for the voltage divider to maximise range is the geometric mean of these values).
 - Crocodile cables
 - Multicore cable of different colours (e.g.: black, red, grey)
 - Heatsink
