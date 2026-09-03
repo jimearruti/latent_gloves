@@ -35,13 +35,17 @@ TODO: Update with new prototype and lessons learned.
 
 2. Connect MIDI Interface to PC (if additional control is wanted)
 
-3. The first time you are building this, open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE. Install the `Adafruit MPU6050` and `OCS` Libraries, and the drivers for `Ardino Nano ESP32` boards in the Boards manager. Click Upload. _You only need to do this one time to load the code on the board, the following times it will already work once you plug it in._
+3. Open `Arduino/Latent_gloves/Latent_gloves.ino` on Arduino IDE.
+   
+4. Install the `Adafruit MPU6050` and `OCS` Libraries, and the drivers for `Ardino Nano ESP32` boards in the Boards manager.
 
-5. (Calibration) While holding the hand in a neutral, horizontal position with fingers extended and the palm facing the floor, press the reset button. The LED will start bliking. Wait until the blinking stops.
+5. Click Upload. _You only need to do this one time to load the code on the board, the following times it will already work once you plug it in._
 
-6. Open the Serial Monitor to check if the calibration ran without errors, you should be seeing the values of flexion in each finger and the pitch and roll angles updating.
+7. (Calibration) While holding the hand in a neutral, horizontal position with fingers extended and the palm facing the floor, press the reset button. The LED will start bliking. Wait until the blinking stops.
 
-7. Close Serial Monitor.
+8. Open the Serial Monitor to check if the calibration ran without errors, you should be seeing the values of flexion in each finger and the pitch and roll angles updating.
+
+9. Close Serial Monitor.
 
 ### Play
 
